@@ -11,14 +11,7 @@ L'objectif de ce projet est de créer un clone de l'application Discord avec les
 Pour commencer, clonez ce dépôt localement :
 
 ```bash
-git clone <https://github.com/maximegris/angular-electron.git>
-
-```
-
-Installez les dépendances avec npm (utilisé par le processus de rendu Electron):
-
-```bash
-npm install
+git clone <git@github.com:anthony-mini/angular-electron-clone-discord.git>
 
 ```
 
@@ -32,11 +25,15 @@ npm install -g @angular/cli
 
 ```
 
-Installez les dépendances NodeJS avec npm (utilisé par le processus principal Electron):
+Installez les dépendances avec npm et run l'application:
 
 ```bash
-cd app/
 npm install
+
+```
+
+```bash
+npm run start
 
 ```
 
@@ -44,9 +41,9 @@ Pourquoi deux package.json ? Ce projet suit la [structure à deux package.json d
 
 Pour construire pour le développement :
 
-- **dans une fenêtre de terminal** -> npm start
+- **dans une fenêtre de terminal** -> npm run start
 
-Et voilà! Vous pouvez utiliser votre application Angular + Electron dans un environnement de développement local avec hot reload!
+Et voilà! Vous pouvez lancer l'application Angular + Electron dans un environnement de développement local avec hot reload!
 
 Le code de l'application est géré par `app/main.ts`. Dans cet exemple, l'application fonctionne avec une simple application Angular ([http://localhost:4200](http://localhost:4200/)), et une fenêtre Electron.
 Le composant Angular contient un exemple d'importation de lib native Electron et NodeJS.
