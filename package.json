@@ -1,27 +1,7 @@
 {
-  "name": "angular-electron",
+  "name": "angular-electron-clone-discord",
   "version": "14.0.0",
   "description": "Angular 17 with Electron 27 (Typescript + SASS + Hot Reload)",
-  "homepage": "https://github.com/maximegris/angular-electron",
-  "author": {
-    "name": "Maxime GRIS",
-    "email": "maxime.gris@gmail.com"
-  },
-  "keywords": [
-    "angular",
-    "angular 17",
-    "electron",
-    "electron 27",
-    "nodejs",
-    "typescript",
-    "jest",
-    "playwright",
-    "eslint",
-    "sass",
-    "windows",
-    "mac",
-    "linux"
-  ],
   "main": "app/main.js",
   "private": true,
   "scripts": {
