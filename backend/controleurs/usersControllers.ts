@@ -5,26 +5,26 @@ import { createUser, getUser, getAllUsers } from '../models/users';
 const router = express.Router();
 
 router.post('/register', (req: Request, res: Response, next: NextFunction) => {
-  const { username, password } = req.body as {
-    username: string;
+  const { name, password } = req.body as {
+    name: string;
     password: string;
   };
-  createUser(username, password)
+  createUser(name, password)
     .then((user) => res.json(user))
     .catch(next);
 });
 
 router.post('/login', (req: Request, res: Response, next: NextFunction) => {
-  const { username, password } = req.body as {
-    username: string;
+  const { name, password } = req.body as {
+    name: string;
     password: string;
   };
-  getUser(username)
+  getUser(name)
     .then((user) => {
       if (user && user.password === password) {
         res.json({ message: 'Logged in successfully' });
       } else {
-        res.status(401).json({ message: 'Invalid username or password' });
+        res.status(401).json({ message: 'Invalid name or password' });
       }
     })
     .catch(next);
