@@ -1,17 +1,37 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { WebsocketService } from '../core/services/websocket/websocket.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  public messages: string[] = [];
+  public newMessage: string = '';
 
-  constructor(private router: Router) { }
+  constructor(private websocketService: WebsocketService) {}
 
   ngOnInit(): void {
     console.log('HomeComponent INIT');
+
+    this.websocketService.sendMessage('Success Connection');
+
+    // Fetch existing messages
+    // this.websocketService.fetchMessages().subscribe((messages) => {
+    //   this.messages = messages;
+    // });
+
+    // Subscribe to new messages
+    this.websocketService.messages$.subscribe((message) => {
+      this.messages.push(message);
+    });
   }
 
+  sendMessage(): void {
+    if (this.newMessage.trim()) {
+      this.websocketService.sendMessage(this.newMessage);
+      this.newMessage = '';
+    }
+  }
 }
