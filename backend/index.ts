@@ -1,7 +1,15 @@
 import { Server } from 'socket.io';
 import { Client } from 'pg';
 
+import express = require('express');
+
+import userControllers from './controleurs/usersControllers';
+
 async function main(): Promise<void> {
+  const app = express();
+  app.use(express.json());
+  app.use('/users', userControllers);
+
   const io = new Server({
     cors: {
       origin: '*',
@@ -33,8 +41,11 @@ async function main(): Promise<void> {
   });
 
   io.listen(3000);
+  app.listen(5500, () => {
+    console.log('Server is running on port 3000');
+  });
 
-  console.log('Server is running on port 3000');
+  console.log('Server is running on port 5500');
 }
 
 main().catch((err) => {

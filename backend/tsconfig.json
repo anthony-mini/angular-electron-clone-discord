@@ -17,7 +17,7 @@
     "useDefineForClassFields": false
   },
   "exclude": ["node_modules"],
-  "include": ["index.ts"],
+  "include": ["index.ts", "src/**/*.ts"],
   "angularCompilerOptions": {
     "strictTemplates": true,
     "fullTemplateTypeCheck": true,
