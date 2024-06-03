@@ -3,7 +3,15 @@
     {{ "PAGES.HOME.TITLE" | translate }}
   </h1>
 
-  <p *ngFor="let message of messages">{{ message }}</p>
-
-  <a routerLink="/detail">{{ "PAGES.HOME.GO_TO_DETAIL" | translate }}</a>
+  <div class="chat-container">
+    <div class="messages">
+      <div *ngFor="let message of messages" class="message">
+        {{ message }}
+      </div>
+    </div>
+    <div class="input-container">
+      <input [(ngModel)]="newMessage" placeholder="Type a message..." />
+      <button (click)="sendMessage()">Send</button>
+    </div>
+  </div>
 </div>

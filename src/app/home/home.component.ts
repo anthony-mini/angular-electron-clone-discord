@@ -9,6 +9,7 @@ import { WebsocketService } from '../core/services/websocket/websocket.service';
 })
 export class HomeComponent implements OnInit {
   public messages: string[] = [];
+  public newMessage: string = '';
 
   constructor(
     private router: Router,
@@ -18,11 +19,17 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     console.log('HomeComponent INIT');
 
-    this.websocketService.sendMessage('Hello from the client! 1');
-    this.websocketService.sendMessage('Hello from the client! 2');
-    this.websocketService.sendMessage('Hello from the client! 3');
+    this.websocketService.sendMessage('Success Connection');
     this.websocketService.onMessage().subscribe((message) => {
       this.messages.push(message);
     });
+  }
+
+  // Send Message to the server using the WebsocketService with an input value
+  sendMessage(): void {
+    if (this.newMessage.trim()) {
+      this.websocketService.sendMessage(this.newMessage);
+      this.newMessage = '';
+    }
   }
 }
