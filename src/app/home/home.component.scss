@@ -43,3 +43,14 @@ button {
 button:hover {
   background-color: #0056b3;
 }
+
+.global-container {
+  height: 100%;
+  /* width: 100%; */
+  display: flex;
+  justify-content: space-between;
+}
+
+.container {
+  width: 75%;
+}

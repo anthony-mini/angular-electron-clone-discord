@@ -13,8 +13,6 @@ export class HomeComponent implements OnInit {
   constructor(private websocketService: WebsocketService) {}
 
   ngOnInit(): void {
-    console.log('HomeComponent INIT');
-
     this.websocketService.sendMessage('Success Connection');
 
     // Fetch existing messages

@@ -1,15 +1,20 @@
-<div class="container">
-  <h1 class="title">Discord Clone Chat</h1>
+<div class="global-container">
+  <div class="container-chat-panel">
+    <app-chat-panel></app-chat-panel>
+  </div>
+  <div class="container">
+    <h1 class="title">Discord Clone Chat</h1>
 
-  <div class="chat-container">
-    <div class="messages">
-      <div *ngFor="let message of messages" class="message">
-        {{ message }}
+    <div class="chat-container">
+      <div class="messages">
+        <div *ngFor="let message of messages" class="message">
+          {{ message }}
+        </div>
       </div>
-    </div>
-    <div class="input-container">
-      <input [(ngModel)]="newMessage" placeholder="Type a message..." />
-      <button (click)="sendMessage()">Send</button>
+      <div class="input-container">
+        <input [(ngModel)]="newMessage" placeholder="Type a message..." />
+        <button (click)="sendMessage()">Send</button>
+      </div>
     </div>
   </div>
 </div>
